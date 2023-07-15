@@ -32,4 +32,8 @@ app.get('/api/persons',(req,res)=>{
     res.send(notes)
 })
 
+app.get('/', (req, res) => {
+    res.send("Hello")
+})
+
 app.listen(3001)
