@@ -61,10 +61,12 @@ const url = process.env.url;
 //     res.send("Hello")
 // })
 
-app.get('/info' , (req,res,next) =>{
-    res.send(`<p>Phonebook has info for ${persons.length} people</p>
-              <p>${new Date()}</p>
-    `)
+app.get('/info', (req, res, next) => {
+    Person.find({}).then(person => {
+        res.send(`<p>Phonebook has info for ${person.length} people</p>
+        <p>${new Date()}</p>
+        `)
+    })
 })
 
 app.get('/api/persons',(req,res,next)=>{
